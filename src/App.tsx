@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { initAudio, playHoverSound, playClickSound, setPhaseSound } from './AudioManager';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Float, MeshTransmissionMaterial, MeshDistortMaterial } from '@react-three/drei';
-import { EffectComposer, Bloom, Noise, Vignette } from '@react-three/postprocessing';
-import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence } from 'framer-motion';
+import { EffectComposer, Bloom, Noise } from '@react-three/postprocessing';
+import { motion, useScroll, useSpring, useMotionValue, AnimatePresence } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
 import { ArrowRight } from 'lucide-react';
 import * as THREE from 'three';
@@ -563,36 +563,7 @@ const PortfolioCard3D = ({ index, introState }: { index: number, introState: str
 };
 
 // Far Left Vertical Navigation Rail
-const LeftRail = () => {
-  const { scrollYProgress } = useScroll();
-  const scaleY = useTransform(scrollYProgress, [0, 1], [0.03, 1]);
 
-  return (
-    <div className="fixed left-8 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center">
-      {['01', '02', '03', '04', '05', '06'].map((num, idx) => (
-        <div key={num} className="flex flex-col items-center">
-          <span
-            className="text-[10px] tracking-[0.2em] font-mono font-medium text-white/30 hover:text-luxury-gold transition-colors cursor-pointer py-2"
-            onMouseEnter={playHoverSound}
-            onClick={() => { playClickSound(); initAudio(); }}
-          >
-            {num}
-          </span>
-          {idx < 5 && (
-            <div className="h-10 w-[1px] bg-white/5 relative my-1">
-              {idx === 0 && (
-                <motion.div
-                  style={{ scaleY, originY: 0 }}
-                  className="absolute inset-0 bg-luxury-gold shadow-[0_0_8px_#c8a46b]"
-                />
-              )}
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  );
-};
 
 export default function App() {
   const { scrollYProgress } = useScroll();
