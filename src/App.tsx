@@ -12,6 +12,7 @@ import manacVideo from './assets/manac_screenrecord.mp4';
 import restaurantVideo from './assets/restaurant_record.mp4';
 import manacVideo2 from './assets/Manac_infotech.mp4';
 import introVideo from './assets/intro.mp4';
+import ourCreationVideo from './assets/our_creation.mp4';
 
 // --- Custom Magnetic Button Component ---
 const MagneticButton = ({ children, className, onClick }: { children: React.ReactNode; className?: string; onClick?: () => void }) => {
@@ -901,7 +902,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-10 lg:gap-12">
               <div className="group cursor-pointer">
                 <div className="relative overflow-hidden rounded-xl border border-white/10 aspect-video mb-6">
                   {introState === 'completed' && <video src={manacVideo} autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />}
@@ -932,6 +933,17 @@ export default function App() {
                 <div className="px-2">
                   <h3 className="text-xl font-serif tracking-wide group-hover:text-luxury-gold transition-colors">Manac App</h3>
                   <p className="text-sm text-white/40 font-light mt-2">A sleek, powerful mobile-first interface optimized for seamless user interactions.</p>
+                </div>
+              </div>
+
+              <div className="group cursor-pointer">
+                <div className="relative overflow-hidden rounded-xl border border-white/10 aspect-video mb-6">
+                  {introState === 'completed' && <video src={ourCreationVideo} autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />}
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+                <div className="px-2">
+                  <h3 className="text-xl font-serif tracking-wide group-hover:text-luxury-gold transition-colors">Enterprise Platform</h3>
+                  <p className="text-sm text-white/40 font-light mt-2">A fully integrated, cloud-native architecture built for unmatched reliability and scale.</p>
                 </div>
               </div>
             </div>
